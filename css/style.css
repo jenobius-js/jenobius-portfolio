@@ -1,0 +1,28 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+.banner{
+    background-image: url(/PortFolio/images/bg.jpeg);
+    background-size: cover;
+    padding: 210px 0;
+    background-repeat: no-repeat;
+}
+.skills-padding{
+    padding: 70px 0;
+}
+
+.card {
+    height: 60%; /* Set a fixed height for all cards */
+}
+
+.card-img-top {
+    object-fit: cover; /* Ensure images cover the entire container */
+    height: 150px; /* Set a fixed height for the images */
+}
+
+.card-body {
+    height: 150px; /* Set a fixed height for the card body */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
