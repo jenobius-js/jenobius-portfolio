@@ -1,27 +1,35 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
 *{
     font-family: 'Poppins', sans-serif;
 }
 .banner{
-    background-image: url(../images/bg.jpeg);
+    background-color: rgb(225, 225, 230);
     background-size: cover;
-    padding: 210px 0;
-    background-repeat: no-repeat;
+    height: auto;    
+}
+.icons a{
+    padding: 8px;
+}
+a{
+    color: #000;
+    text-decoration: none;
 }
 .skills-padding{
     padding: 70px 0;
 }
 
 .card {
-    height: 60%; /* Set a fixed height for all cards */
+    height: 60%; 
 }
 
 .card-img-top {
-    object-fit: cover; /* Ensure images cover the entire container */
-    height: 150px; /* Set a fixed height for the images */
+    object-fit: cover; 
+    height: 150px; 
 }
 
 .card-body {
-    height: 150px; /* Set a fixed height for the card body */
+    height: 150px; 
     display: flex;
     flex-direction: column;
     justify-content: center;
