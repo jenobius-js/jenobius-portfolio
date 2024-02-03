@@ -18,7 +18,9 @@ a{
 .skills-padding{
     padding: 70px 0;
 }
-
+.progress-bar{
+    background-color: #0496a0;
+}
 .card {
     height: 60%; 
 }
