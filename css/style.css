@@ -8,6 +8,16 @@
     background-size: cover;
     height: auto;    
 }
+.btn{
+    color: #0496a0;
+    border: 1px solid #0496a0;
+    border-radius: 200px;
+    font-size: medium;
+}
+.btn:hover{
+    color: white;
+    background-color: #0496a0;
+}
 .icons a{
     padding: 8px;
 }
