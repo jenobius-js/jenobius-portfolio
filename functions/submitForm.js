@@ -28,7 +28,7 @@ exports.handler = async function (event) {
     const mailOptions = {
         from: email,
         to: process.env.EMAIL_USER,
-        subject: 'New Contact Form Submission',
+        subject: 'New Contact Form Submission from Portfolio',
         text: `Name: ${name}\nMobile: ${mobile}\nEmail: ${email}\nSubject: ${subject}`
     };
 
