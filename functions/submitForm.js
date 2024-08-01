@@ -8,8 +8,8 @@ exports.handler = async function(event, context) {
             body: JSON.stringify({ success: false, message: 'Method Not Allowed' })
         };
     }
-
-    const formData = new URLSearchParams(event.body);
+    
+    const formData = new URLSearchParams(await event.body.text());
 
     const name = formData.get('name');
     const mobile = formData.get('mobile');

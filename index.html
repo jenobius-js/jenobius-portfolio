@@ -200,7 +200,8 @@
                     </a>
                 </div>
                 <div class="col-md-6 mb-4 projects-img">
-                    <a href="https://github.com/jenobius-js/toxicCommentClassification-And-EmotionDetection" target="_blank">
+                    <a href="https://github.com/jenobius-js/toxicCommentClassification-And-EmotionDetection"
+                        target="_blank">
                         <img src="./images/toxicComment_emotion.png" class="img-fluid portfolio_img" alt="BookShoppe">
                     </a>
                 </div>
@@ -220,19 +221,23 @@
                     <form id="contactForm" action="/.netlify/functions/submitForm" method="POST">
                         <div class="mb-3">
                             <label for="InputName" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="InputName" name="name" aria-describedby="nameHelp" required>
+                            <input type="text" class="form-control" id="InputName" name="name"
+                                aria-describedby="nameHelp" required>
                         </div>
                         <div class="mb-3">
                             <label for="InputMobile" class="form-label">Mobile</label>
-                            <input type="number" class="form-control" id="InputMobile" name="mobile" aria-describedby="mobileHelp" required>
+                            <input type="number" class="form-control" id="InputMobile" name="mobile"
+                                aria-describedby="mobileHelp" required>
                         </div>
                         <div class="mb-3">
                             <label for="InputEmail" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="InputEmail" name="email" aria-describedby="emailHelp" required>
+                            <input type="email" class="form-control" id="InputEmail" name="email"
+                                aria-describedby="emailHelp" required>
                         </div>
                         <div class="mb-3">
                             <label for="FormControlTextarea1" class="form-label">Subject</label>
-                            <textarea class="form-control" id="FormControlTextarea1" name="subject" rows="3" required></textarea>
+                            <textarea class="form-control" id="FormControlTextarea1" name="subject" rows="3"
+                                required></textarea>
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-lg text-uppercase">Submit</button>
@@ -255,33 +260,41 @@
 </body>
 
 <script>
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
         event.preventDefault();
-        
+
         const formMessage = document.getElementById('formMessage');
         formMessage.textContent = '';
 
         const formData = new FormData(this);
+
+        const formDataObject = Object.fromEntries(formData);
+        const formDataURL = new URLSearchParams(formDataObject).toString();
+
         fetch('/.netlify/functions/submitForm', {
             method: 'POST',
-            body: formData
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: formDataURL
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                formMessage.textContent = 'Form submitted successfully!';
-                formMessage.style.color = 'green';
-            } else {
-                formMessage.textContent = 'Error submitting form. Please try again.';
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    formMessage.textContent = 'Form submitted successfully!';
+                    formMessage.style.color = 'green';
+                } else {
+                    formMessage.textContent = 'Error submitting form. Please try again.';
+                    formMessage.style.color = 'red';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                formMessage.textContent = 'An error occurred. Please try again later.';
                 formMessage.style.color = 'red';
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            formMessage.textContent = 'An error occurred. Please try again later.';
-            formMessage.style.color = 'red';
-        });
+            });
     });
+
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
