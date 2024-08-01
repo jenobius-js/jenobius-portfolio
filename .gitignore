@@ -1,0 +1,22 @@
+# Node modules directory
+node_modules/
+
+# Environment variable files
+.env
+
+# Logs
+logs/
+*.log
+
+# Dependency directories
+bower_components/
+
+# Compiled source files
+dist/
+build/
+
+# System files
+.DS_Store
+
+# Netlify functions
+functions/node_modules/

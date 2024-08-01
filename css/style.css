@@ -55,4 +55,6 @@ a {
     justify-content: center;
 }
 
-
+#about p{
+    text-align: justify;
+}
