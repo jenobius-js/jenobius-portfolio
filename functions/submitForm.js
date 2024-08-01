@@ -1,15 +1,16 @@
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 
-exports.handler = async function(event, context) {
+exports.handler = async function (event) {
     if (event.httpMethod !== 'POST') {
         return {
             statusCode: 405,
             body: JSON.stringify({ success: false, message: 'Method Not Allowed' })
         };
     }
-    
-    const formData = new URLSearchParams(await event.body.text());
+
+    // Directly use event.body as a string
+    const formData = new URLSearchParams(event.body);
 
     const name = formData.get('name');
     const mobile = formData.get('mobile');
